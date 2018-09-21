@@ -17,5 +17,5 @@ Download or clone the repository and open the `index.html` file to view locally.
 
 ## Acknowledgements
 * This site uses sounds from [freesound.org](https://freesound.org/):
-  - [u_chimes_short1.mp3](https://freesound.org/people/BristolStories/) by BristolStories
-  - [zen-gong.wav](https://freesound.org/people/djgriffin/) by djgriffin - *converted to mp3 for web*
+  - `u_chimes_short1.mp3` by [BristolStories](https://freesound.org/people/BristolStories/)
+  - `zen-gong.wav` by [djgriffin](https://freesound.org/people/djgriffin/) - *converted to mp3 for web*
