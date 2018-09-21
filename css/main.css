@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Henny+Penny|Roboto:300,300i,400,400i,500');
+
+/***** General *****/
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+html {
+  background: radial-gradient(white, transparent, palegreen), url('../images/fresh-spring-background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body {
+  text-align: center;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+/***** Typography *****/
+
+/* Title */
+h1 {
+  color: mediumseagreen;
+  font-family: 'Henny Penny', sans-serif;
+  font-size: 4em;
+  letter-spacing: .01em;
+  line-height: 1em;
+}
+h2, h4, h5, div#pomodoroDisplay span {
+  font-family: 'Roboto', sans-serif;
+}
+h3, h4 {
+  color: darksalmon;
+}
+
+/* Break/session labels */
+h3 {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1.4em;
+  font-family: 'Courgette', cursive;
+}
+
+/* Break/session i/o */
+h2 {
+  display: inline;
+  font-size: 2.4em;
+  color: tomato;
+}
+
+/* min */
+h4 {
+  display: inline;
+  font-weight: 300;
+  font-style: italic;
+}
+#introMessage {
+  display: inline-block;
+  line-height: 1.2em;
+  font-size: 1.4em;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+#modeMessage {
+  font-size: 4em;
+}
+#pomodoroDisplay span {
+  display: inline-block;
+  position: relative;
+  top: 90px;
+  font-weight: 500;
+  font-size: 3.5em;
+  color: white;
+  text-shadow: 2px 3px 6px firebrick;
+  z-index: 100;
+}
+h5 a {
+  text-decoration: none;
+  color: mediumseagreen;
+  font-weight: 400;
+}
+h5 a:hover {
+  color: seagreen;
+}
+
+/***** Layout *****/
+
+main {
+  min-height: 100%;
+  width: 100%;
+  max-width: 600px;
+  /* margin: 25px auto 0; */
+  display: grid;
+  grid-gap: 1em;
+  grid-template-rows: repeat(6, auto);
+  grid-template-areas:
+    'header'
+    'breakUI'
+    'sessionUI'
+    'message'
+    'pomodoroUI'
+    'footer';
+  align-items: center;
+  justify-items: center;
+}
+#header {
+  grid-area: header;
+}
+#breakUI {
+  grid-area: breakUI;
+  width: 80%;
+}
+#sessionUI {
+  grid-area: sessionUI;
+  width: 80%;
+}
+#messageWrapper {
+  grid-area: message;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+/* Timer UI wrapper */
+#pomodoroUI {
+  grid-area: pomodoroUI;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  z-index: 20;
+}
+#pomodoroUI:hover {
+  background-image: radial-gradient(rgba(100, 39, 28, .05), rgba(70, 13, 13, .05));
+  cursor: pointer;
+}
+#pomodoroDisplay {
+  grid-area: pomodoroUI;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  background-image: radial-gradient(tomato, firebrick);
+  border-radius: 50%;
+  z-index: 0;
+}
+#shadow {
+  grid-area: pomodoroUI;
+  position: relative;
+  top: 185px;
+  height: 72px;
+  width: 300px;
+  margin: 0 auto;
+  background-image: radial-gradient(ellipse at center, rgb(172, 190, 172), rgba(0, 0, 0, 0) 60%, transparent);
+  z-index: -30;
+}
+canvas {
+  grid-area: pomodoroUI;
+  margin: 0 auto;
+  z-index: 10;
+}
+footer {
+  grid-area: footer;
+  padding: 20px;
+}
+
+/***** Range Sliders *****/
+/* Code adapted from https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+/*--- Remove default styles ---*/
+
+input[type=range] {
+  -webkit-appearance: none; /* hides slider so custom sliders can be made */
+  width: 100%; /* required for Firefox */
+  background: transparent; /* otherwise white in Chrome */
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none; /* hides thumb */
+}
+input[type=range]:focus {
+  outline: none; /* removes blue border */
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/*--- Thumb ---*/
+
+/* Webkit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid firebrick;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: tomato;
+  cursor: pointer;
+  margin-top: -9px; /* needed for Chrome, Firefox and IE are automatic */
+  box-shadow: 1px 1px 2px #aaa;
+}
+
+/* Firefox */
+input[type=range]::-moz-range-thumb {
+  border: 1px solid firebrick;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: tomato;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px #aaa;
+}
+
+/* IE */
+input[type=range]::-ms-thumb {
+  border: 1px solid firebrick;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: tomato;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px #aaa;
+}
+
+/*--- Track ---*/
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 1px #aaa,
+              inset 1px 1px 1px #aaa;
+  background: palegreen;
+  border-radius: 3px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: mediumseagreen;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: inset -1px -1px 1px #aaa,
+              inset 1px 1px 1px #aaa;
+  background: palegreen;
+  border-radius: 3px;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: palegreen;
+  border-radius: 3px;
+  box-shadow: inset -1px -1px 1px #aaa,
+              inset 1px 1px 1px #aaa;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: mediumseagreen;
+}
+input[type=range]::-ms-fill-upper {
+  background: palegreen;
+  border-radius: 3px;
+  box-shadow: inset -1px -1px 1px #aaa,
+              inset 1px 1px 1px #aaa;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: mediumseagreen;
+}
+
+/*--- My range slider styles  */
+
+input.slider {
+  padding: 25px 0 15px 0;
+}
+
+/***** Media Queries *****/
+
+@media screen and (min-width: 600px) {
+  main {
+    grid-template-areas:
+      'header      header'
+      'breakUI     sessionUI'
+      'message     message'
+      'pomodoroUI  pomodoroUI'
+      '.           .'
+      'footer      footer';
+  }
+  h1 {
+    font-size: 5em;
+  }
+}
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 2.5em;
+    margin-top: 22px;
+  }
+  footer {
+    grid-area: footer;
+    padding: 100px 0 22px;
+  }
+}
