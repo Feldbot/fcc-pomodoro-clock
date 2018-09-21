@@ -1,6 +1,6 @@
 # Build a Pomodoro Clock
 
-The [Build a Pomodoro Clock](https://feldbot.github.io/pomodoro-clock/) project is part of Free Code Camp's Legacy Front End Development certificate curriculum. The app aims to help boost productivity by tracking work and break times. When the timer is not running set the work and break times, then press the Pomodoro tomato to begin. Pressing the button again will pause the timer. This project demonstrates JavaScript programming proficiency with an emphasis on timer functions and HTML5 canvas .svg animation.       
+The [Build a Pomodoro Clock](https://feldbot.github.io/fcc-pomodoro-clock/) project is part of Free Code Camp's Legacy Front End Development certificate curriculum. The app aims to help boost productivity by tracking work and break times. When the timer is not running set the work and break times, then press the Pomodoro tomato to begin. Pressing the button again will pause the timer. This project demonstrates JavaScript programming proficiency with an emphasis on timer functions and HTML5 canvas .svg animation.       
 
 ## Built With
 
